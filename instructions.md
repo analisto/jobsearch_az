@@ -14,3 +14,4 @@ Please ensure you have a stable internet connection.
 We recommend you to try the sample test for a couple of minutes, before taking the main test.
 
 Before taking the test, please go through the FAQs to resolve your queries related to the test or the HackerRank platform.
+https://chat.openai.com/share/dcb291d7-1c03-455f-8d38-bc05b1881cee
