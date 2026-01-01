@@ -1,5 +1,6 @@
 # Dataset (too large for git)
 dataset/
+.claude
 
 # Python
 __pycache__/
@@ -17,7 +18,7 @@ env/
 *.ipynb_checkpoints
 
 # Model files (large)
-*.keras
+# *.keras
 *.h5
 # *.pkl
 
