@@ -4,7 +4,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.16-orange.svg)](https://www.tensorflow.org/)
-[![Accuracy](https://img.shields.io/badge/Accuracy-62.4%25-success.svg)](.)
+[![Accuracy](https://img.shields.io/badge/Accuracy-62.3%25-success.svg)](.)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
@@ -35,7 +35,7 @@ This project implements an end-to-end **Speech Emotion Recognition (SER)** syste
 |--------|-------|
 | **Total Audio Samples** | 12,162 files |
 | **Successfully Processed** | 11,762 samples (96.7%) |
-| **Model Accuracy** | **62.41%** |
+| **Model Accuracy** | **62.30%** |
 | **Training Time** | ~25-30 minutes |
 | **Emotions Recognized** | 8 classes |
 | **Model Parameters** | 277,192 |
@@ -324,8 +324,8 @@ Epoch   Train Loss   Val Loss   Train Acc   Val Acc
 ╔══════════════════════════════╗
 ║   FINAL TEST SET RESULTS     ║
 ╠══════════════════════════════╣
-║  Test Accuracy:  62.41%      ║
-║  Test Loss:      0.9761      ║
+║  Test Accuracy:  62.30%      ║
+║  Test Loss:      0.9890      ║
 ║  Test Samples:   1,825       ║
 ╚══════════════════════════════╝
 ```
@@ -341,10 +341,10 @@ Epoch   Train Loss   Val Loss   Train Acc   Val Acc
 - **Off-diagonal**: Misclassifications
 
 **Key Patterns:**
-- **Angry**: 209/290 correct (72%) - Strong performance
-- **Surprise**: 94/108 correct (87%) - Best performer!
-- **Fear**: 155/293 correct (53%) - Often confused with other negative emotions
-- **Happy**: 156/267 correct (58%) - Sometimes confused with Calm
+- **Angry**: 214/290 correct (74%) - Strong performance
+- **Surprise**: 93/108 correct (86%) - Best performer!
+- **Fear**: 143/293 correct (49%) - Most challenging, often confused with other negative emotions
+- **Happy**: 164/267 correct (61%) - Sometimes confused with Calm/Neutral
 
 **Common Confusions:**
 1. **Disgust ↔ Angry** (49 cases) - Similar acoustic intensity
@@ -355,32 +355,32 @@ Epoch   Train Loss   Val Loss   Train Acc   Val Acc
 
 | Emotion | Precision | Recall | F1-Score | Accuracy | Support | Performance |
 |---------|-----------|--------|----------|----------|---------|-------------|
-| **Surprise** 😲 | 84.7% | 87.0% | 85.8% | **87.0%** | 108 | ⭐ **Excellent** |
-| **Angry** 😡 | 81.0% | 72.1% | 76.3% | **72.1%** | 290 | ⭐ **Strong** |
-| **Calm** 😌 | 56.0% | 66.7% | 60.9% | **66.7%** | 21 | ✅ Good |
-| **Neutral** 😐 | 55.4% | 65.3% | 59.9% | **65.3%** | 259 | ✅ Good |
-| **Sad** 😢 | 65.6% | 60.1% | 62.7% | **60.1%** | 301 | ✅ Moderate |
-| **Happy** 😊 | 52.7% | 58.4% | 55.4% | **58.4%** | 267 | ⚠️ Moderate |
-| **Disgust** 🤢 | 52.3% | 56.3% | 54.2% | **56.3%** | 286 | ⚠️ Moderate |
-| **Fear** 😨 | 63.0% | 52.9% | 57.5% | **52.9%** | 293 | ⚠️ Challenging |
+| **Surprise** 😲 | 84.5% | 86.1% | 85.3% | **86.1%** | 108 | ⭐ **Excellent** |
+| **Calm** 😌 | 57.1% | 76.2% | 65.3% | **76.2%** | 21 | ⭐ **Strong** |
+| **Angry** 😡 | 73.8% | 73.8% | 73.8% | **73.8%** | 290 | ⭐ **Strong** |
+| **Neutral** 😐 | 54.6% | 66.4% | 59.9% | **66.4%** | 259 | ✅ Good |
+| **Happy** 😊 | 50.2% | 61.4% | 55.2% | **61.4%** | 267 | ✅ Good |
+| **Sad** 😢 | 68.8% | 59.5% | 63.8% | **59.5%** | 301 | ⚠️ Moderate |
+| **Disgust** 🤢 | 56.1% | 54.5% | 55.3% | **54.5%** | 286 | ⚠️ Moderate |
+| **Fear** 😨 | 65.9% | 48.8% | 56.1% | **48.8%** | 293 | ⚠️ Challenging |
 
 #### Performance Tiers:
 
 **🏆 Top Performers (>70% accuracy):**
-- **Surprise (87.0%)** - Distinct acoustic signature
-- **Angry (72.1%)** - High energy, sharp prosody
+- **Surprise (86.1%)** - Distinct acoustic signature
+- **Calm (76.2%)** - Excellent improvement! Low energy, stable pitch
+- **Angry (73.8%)** - High energy, sharp prosody
 
 **✅ Good Performance (60-70% accuracy):**
-- **Calm (66.7%)** - Low energy, stable pitch
-- **Neutral (65.3%)** - Baseline emotional state
+- **Neutral (66.4%)** - Baseline emotional state
+- **Happy (61.4%)** - Moderate performance with Calm/Neutral confusion
 
 **⚠️ Moderate Performance (55-60% accuracy):**
-- **Sad (60.1%)** - Overlaps with Fear
-- **Happy (58.4%)** - Confused with Calm/Neutral
-- **Disgust (56.3%)** - Similar to Angry
+- **Sad (59.5%)** - Overlaps with Fear
+- **Disgust (54.5%)** - Similar acoustic patterns to Angry
 
-**🎯 Needs Improvement (<55% accuracy):**
-- **Fear (52.9%)** - Most challenging to classify
+**🎯 Needs Improvement (<50% accuracy):**
+- **Fear (48.8%)** - Most challenging to classify, significant confusion with Sad
 
 ### Model Performance Summary
 
@@ -388,10 +388,10 @@ Epoch   Train Loss   Val Loss   Train Acc   Val Acc
 ╔════════════════════════════════════════╗
 ║       CLASSIFICATION METRICS           ║
 ╠════════════════════════════════════════╣
-║  Macro Average Precision:    63.8%     ║
-║  Macro Average Recall:       64.8%     ║
-║  Macro Average F1-Score:     64.1%     ║
-║  Weighted Average F1:        62.6%     ║
+║  Macro Average Precision:    63.9%     ║
+║  Macro Average Recall:       65.8%     ║
+║  Macro Average F1-Score:     64.3%     ║
+║  Weighted Average F1:        62.3%     ║
 ╚════════════════════════════════════════╝
 ```
 
@@ -719,28 +719,33 @@ speech_emotion_recognition/
 
 ### ✅ What Works Well
 
-1. **Surprise Emotion (87% accuracy)**
+1. **Surprise Emotion (86% accuracy)**
    - Distinct acoustic signature makes it easiest to recognize
    - Strong prosodic changes and pitch variations
 
-2. **Angry Emotion (72% accuracy)**
+2. **Calm Emotion (76% accuracy)**
+   - Significant improvement in recognition
+   - Low energy, stable pitch patterns well captured
+
+3. **Angry Emotion (74% accuracy)**
    - High energy and intensity are clear indicators
    - Sharp, aggressive prosody patterns
 
-3. **Balanced Dataset**
+4. **Balanced Dataset**
    - 5 out of 8 emotions have ~1,900 samples each
    - Prevents bias towards any single emotion
 
-4. **Feature Engineering**
+5. **Feature Engineering**
    - 195 comprehensive features capture diverse acoustic properties
    - MFCC + Spectral features provide complementary information
 
 ### ⚠️ Challenges
 
-1. **Fear vs. Sad Confusion**
-   - Both are low-energy, negative emotions
-   - Similar acoustic characteristics
-   - Solution: More training data and temporal features
+1. **Fear Classification (49% accuracy)**
+   - Most challenging emotion to recognize
+   - Frequently confused with Sad (both low-energy, negative emotions)
+   - Similar acoustic characteristics lead to misclassification
+   - Solution: More training data, temporal features, and data augmentation
 
 2. **Underrepresented Emotions**
    - Calm (192 samples) and Surprise (652 samples)
@@ -755,10 +760,11 @@ speech_emotion_recognition/
 ### 🎯 Model Strengths
 
 - **Generalization**: Works across 4 different datasets
-- **Real-world applicable**: 62% accuracy is competitive
+- **Real-world applicable**: 62.3% accuracy is competitive for 8-class emotion recognition
 - **Fast inference**: ~50-100ms per prediction
 - **Interpretable**: Feature importance can be analyzed
 - **Scalable**: Can be retrained with more data
+- **Strong top-tier performance**: 3 emotions achieving >70% accuracy
 
 ---
 
