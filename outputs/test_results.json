@@ -1,0 +1,16 @@
+{
+    "test_accuracy": 0.6241095662117004,
+    "test_loss": 0.9761464595794678,
+    "num_test_samples": 1825,
+    "num_classes": 8,
+    "classes": [
+        "angry",
+        "calm",
+        "disgust",
+        "fear",
+        "happy",
+        "neutral",
+        "sad",
+        "surprise"
+    ]
+}
