@@ -747,12 +747,17 @@ speech_emotion_recognition/
    - Similar acoustic characteristics lead to misclassification
    - Solution: More training data, temporal features, and data augmentation
 
-2. **Underrepresented Emotions**
+2. **Disgust vs. Angry Confusion**
+   - Similar high-energy acoustic patterns
+   - Overlapping vocal intensity and prosody
+   - Solution: Enhanced feature extraction and temporal modeling
+
+3. **Underrepresented Emotions**
    - Calm (192 samples) and Surprise (652 samples)
-   - Limited training data affects generalization
+   - Limited training data despite good performance on Calm (76%)
    - Solution: Data augmentation or balanced sampling
 
-3. **Cross-Dataset Variability**
+4. **Cross-Dataset Variability**
    - Different recording conditions across datasets
    - Varying speaker demographics
    - Solution: Domain adaptation techniques
