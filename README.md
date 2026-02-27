@@ -1,7 +1,7 @@
 # Azerbaijan Job Market Snapshot — February 2026
 
 **A business intelligence report on 2,667 active job postings from jobsearch.az**
-*Observation window: January 28 – February 27, 2026*
+- *Observation window: January 28 – February 27, 2026*
 
 ---
 
